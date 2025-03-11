@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Street Dog Care Hub | Paw Darshan Nepal</title>
+    <style>
+        :root {
+            --primary: #ff6f3c;
+            --secondary: #ff914d;
+            --accent: #ffb380;
+            --light: #fff3e6;
+            --dark: #333333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f8f9fa;
+        }
+
+        .wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary);
+            padding: 25px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo::before {
+            content: "🐾";
+            margin-right: 12px;
+            font-size: 36px;
+        }
+
+        nav {
+            background-color: var(--secondary);
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 16px 24px;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        nav a:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/500');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            margin: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .section {
+            background: white;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 40px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 32px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: "";
+            display: block;
+            width: 50%;
+            height: 3px;
+            background: var(--secondary);
+            position: absolute;
+            bottom: -8px;
+            left: 25%;
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--light);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .step:hover {
+            transform: translateY(-5px);
+        }
+
+        .step-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .step-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid var(--primary);
+        }
+
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            text-align: left;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .get-involved {
+            background-color: var(--light);
+            text-align: center;
+            padding: 60px 40px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            background-image: linear-gradient(rgba(255, 243, 230, 0.9), rgba(255, 243, 230, 0.9)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .get-involved h2 {
+            margin-bottom: 30px;
+        }
+
+        .success-stories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .success-story {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .success-story:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .story-content {
+            padding: 20px;
+        }
+
+        .story-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+            border-top: 5px solid var(--secondary);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-links {
+            margin: 15px 0;
+        }
+
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+        }
+
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        .gallery-item {
+            flex: 1;
+            min-width: 150px;
+            max-width: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 24px;
+            }
+
+            .logo::before {
+                font-size: 28px;
+            }
+
+            nav a {
+                padding: 12px 16px;
+                font-size: 14px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .steps {
+                flex-direction: column;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .success-story {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">Paw Darshan Nepal</div>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="report.html">Report a Dog</a>
+        <a href="foster-homes.html">Find a Foster Home</a>
+        <a href="adopt.html">Adopt a Dog</a>
+        <a href="foster.html">Foster a Dog</a>
+        <a href="updates.html">Updates</a>
+        <a href="groming.html">Saturday Meet</a>
+    </nav>
+
+    <div class="hero">
+        <div class="wrapper">
+            <h1>Help Street Dogs Find Loving Homes</h1>
+            <p>Join our mission to rescue, rehabilitate, and rehome street dogs in Nepal</p>
+            <a href="report.html" class="cta-button">Report a Dog</a>
+            <a href="adopt.html" class="cta-button">Adopt a Dog</a>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <div class="section">
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Paw Darshan Nepal is dedicated to improving the lives of street dogs across Nepal. We connect
+                        these deserving animals with loving foster homes and forever families, providing them with the
+                        care, love, and stability they deserve.</p>
+                    <p>Our network of volunteers, foster families, and supporters work together to make a meaningful
+                        difference in the lives of these animals. Join us in our mission to create a more compassionate
+                        world for street dogs!</p>
+                </div>
+                <div class="about-image">
+                    <img src="/api/placeholder/500/350" alt="Volunteers helping street dogs" />
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <img class="step-img" src="/api/placeholder/300/300" alt="Report a dog" />
+                    <h3>Report</h3>
+                    <p>Spot a street dog in need? Take a picture and share the location with us so our team can help.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <img class="step-img" src="/api/placeholder/300/300" alt="Foster a dog" />
+                    <h3>Foster</h3>
+                    <p>Volunteer to provide a temporary home or find foster homes for dogs while they await adoption.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <img class="step-img" src="/api/placeholder/300/300" alt="Adopt a dog" />
+                    <h3>Adopt</h3>
+                    <p>Give a rescued dog a permanent, loving home and gain a loyal companion for life.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Success Stories</h2>
+            <p>Meet some of the dogs who found their forever homes through Paw Darshan Nepal</p>
+            <div class="success-stories">
+                <div class="success-story">
+                    <img class="story-image" src="/api/placeholder/400/300" alt="Buddy's story" />
+                    <div class="story-content">
+                        <h3>Buddy</h3>
+                        <p>Found abandoned in Kathmandu, Buddy now enjoys hiking with his new family in the mountains.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="success-story">
+                    <img class="story-image" src="/api/placeholder/400/300" alt="Luna's story" />
+                    <div class="story-content">
+                        <h3>Luna</h3>
+                        <p>After recovering from an injury, Luna found a loving home with a family in Pokhara.</p>
+                    </div>
+                </div>
+
+                <div class="success-story">
+                    <img class="story-image" src="/api/placeholder/400/300" alt="Max's story" />
+                    <div class="story-content">
+                        <h3>Max</h3>
+                        <p>From street life to becoming a therapy dog, Max's journey inspires us all.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Saturday Meet Photos</h2>
+            <p>Every Saturday, we gather to groom and care for street dogs. Here are some highlights!</p>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="/api/placeholder/250/180" alt="Saturday Meet 1" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/250/180" alt="Saturday Meet 2" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/250/180" alt="Saturday Meet 3" />
+                </div>
+                <div class="gallery-item">
+                    <img src="/api/placeholder/250/180" alt="Saturday Meet 4" />
+                </div>
+            </div>
+        </div>
+
+        <div class="get-involved">
+            <h2>Get Involved Today</h2>
+            <p>Every dog deserves a chance at a better life. Your involvement can make all the difference!</p>
+            <a href="report.html" class="cta-button">Report a Dog</a>
+            <a href="adopt.html" class="cta-button">Adopt a Dog</a>
+            <a href="foster.html" class="cta-button">Become a Foster</a>
+            <a href="groming.html" class="cta-button">join us at the saturday meet</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#">📱</a>
+                <a href="#">📘</a>
+                <a href="#">📷</a>
+            </div>
+            <p>&copy; 2025 Paw Darshan Nepal | Helping One Dog at a Time</p>
+        </div>
+    </footer>
+</body>
+
+</html>
